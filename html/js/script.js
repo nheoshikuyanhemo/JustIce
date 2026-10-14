@@ -374,3 +374,39 @@ enterBtn?.addEventListener('click', function(e) {
     observer.observe(el);
   });
 })();
+
+/* ============================
+   MENU TOGGLE (MOBILE)
+   ============================ */
+
+// Burger button menu toggle
+const burgerBtn = document.getElementById('burgerBtn');
+if (burgerBtn) {
+  burgerBtn.addEventListener('click', () => {
+    const header = document.querySelector('.header');
+    if (header) {
+      header.classList.toggle('menu-open');
+    }
+  });
+}
+
+/* Optional: Close menu when nav-link clicked */
+if (burgerBtn) {
+  const headerNavLinks = document.querySelectorAll('.header-nav a');
+  headerNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const header = document.querySelector('.header');
+      if (header && header.classList.contains('menu-open')) {
+        header.classList.remove('menu-open');
+      }
+    });
+  });
+}
+
+/* Optional: Close menu on scroll */
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header');
+  if (header && header.classList.contains('menu-open')) {
+    header.classList.remove('menu-open');
+  }
+});
