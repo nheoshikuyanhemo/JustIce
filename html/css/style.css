@@ -291,7 +291,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 1rem;
 }
 
@@ -322,20 +322,15 @@ body {
   display: block;
   width: 100%;
   height: 3px;
-  background: var(--neon-cyan);
+  background: #FFFFFF;
   border-radius: 2px;
   transition: all 0.3s ease;
-  box-shadow: 0 0 8px var(--neon-cyan);
+  box-shadow: 0 0 8px #FFFFFF;
 }
 
-.burger-btn.active .burger-line:nth-child(1) {
-  transform: translateY(8.5px) rotate(45deg);
-}
-.burger-btn.active .burger-line:nth-child(2) {
-  opacity: 0;
-}
-.burger-btn.active .burger-line:nth-child(3) {
-  transform: translateY(-8.5px) rotate(-45deg);
+.burger-btn.active .burger-line {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan);
 }
 
 .header-nav {
@@ -348,6 +343,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: auto;
 }
 
 .nav-link {
@@ -959,4 +955,36 @@ blockquote {
   text-align: center;
   padding: 0.75rem;
   margin: 0.25rem 0;
+}
+
+
+/* ============================
+   SCROLL BLUR OVERLAY (MOBILE)
+   ============================ */
+.scroll-blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-blur-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Only show on mobile when scrolled to bottom */
+@media (max-width: 768px) {
+  .scroll-blur-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
 }

@@ -410,3 +410,47 @@ window.addEventListener('scroll', () => {
     header.classList.remove('menu-open');
   }
 });
+
+
+/* ============================
+   SCROLL BLUR OVERLAY (MOBILE)
+   ============================ */
+(function() {
+  let scrollTimeout;
+  const overlay = document.getElementById('scroll-blur-overlay');
+  if (!overlay) return;
+
+  const checkScroll = () => {
+    if (window.innerWidth <= 768) {
+      // Check if we're near the bottom of the page
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const pageHeight = document.documentElement.scrollHeight;
+      // If within 200px of bottom, show blur
+      if (scrollPosition >= pageHeight - 200) {
+        overlay.classList.add('active');
+      } else {
+        overlay.classList.remove('active');
+      }
+    } else {
+      // Hide on desktop
+      overlay.classList.remove('active');
+    }
+  };
+
+  // Throttle scroll events for performance
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(checkScroll, 100);
+  });
+
+  // Also check on resize and load
+  window.addEventListener('resize', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(checkScroll, 100);
+  });
+
+  window.addEventListener('load', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(checkScroll, 100);
+  });
+})();

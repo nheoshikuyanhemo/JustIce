@@ -119,15 +119,11 @@
 
   <!-- Navbar -->
   <header class="header" role="banner">
-    <div class="logo-box">
-      <a href="index.html"><img src="assets/JustIce_logo.png" alt="Just Ice" class="logo-img"></a>
+    <div class="header-brand">
+      <div class="logo-box">
+        <a href="index.html"><img src="assets/JustIce_logo.png" alt="Just Ice" class="logo-img"></a>
+      </div>
     </div>
-    <!-- Burger Button for Mobile Menu -->
-    <button class="burger-btn" aria-label="Toggle menu" id="burgerBtn">
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-    </button>
     <nav class="header-nav" role="navigation" aria-label="Main navigation">
       <a href="#about" class="nav-link" data-i18n="nav.about">WHAT IS</a>
       <a href="#why" class="nav-link" data-i18n="nav.why">WHY ICE</a>
@@ -135,7 +131,12 @@
       <a href="#ca" class="nav-link" data-i18n="nav.ca">CONTRACT</a>
     </nav>
     <div class="header-right">
-      <select id="langSelect" onchange="applyLang(this.value)" aria-label="Select language">
+    <button class="burger-btn" aria-label="Toggle menu" id="burgerBtn">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <select id="langSelect" onchange="applyLang(this.value)" aria-label="Select language">
         <option value="en" selected>EN</option>
         <option value="id">ID</option>
       </select>
@@ -259,5 +260,6 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/script.js"></script>
-</body>
+  <!-- Scroll Blur Overlay (Mobile) -->
+  <div id="scroll-blur-overlay" class="scroll-blur-overlay"></div></body>
 </html>
