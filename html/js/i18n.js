@@ -33,11 +33,6 @@ function applyLang(lang) {
 
 function initI18n() {
   const saved = localStorage.getItem('justice_lang') || 'en';
-  const select = document.getElementById('langSelect');
-  if (select) {
-    select.value = saved;
-    select.addEventListener('change', () => applyLang(select.value));
-  }
   applyLang(saved);
 }
 

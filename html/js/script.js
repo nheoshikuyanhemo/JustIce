@@ -344,7 +344,7 @@ enterBtn?.addEventListener('click', function(e) {
       return;
     }
     const rect = footer.getBoundingClientRect();
-    if (rect.top <= window.innerHeight * 0.75 && !outro.active) {
+    if (false) {
       outro.trigger();
     }
     ticking = false;
